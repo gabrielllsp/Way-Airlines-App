@@ -1,0 +1,33 @@
+package com.gabriel.wayairlinesapp.presenter.home
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
+import com.gabriel.wayairlinesapp.domain.usecase.GetFlightUseCase
+import com.gabriel.wayairlinesapp.util.StateView
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import retrofit2.HttpException
+import javax.inject.Inject
+
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val getFlightUseCase: GetFlightUseCase
+): ViewModel() {
+
+    fun getFlights() = liveData(Dispatchers.IO) {
+        try {
+            emit(StateView.Loading())
+
+            val flights = getFlightUseCase.invoke()
+            emit(StateView.Success(data = flights))
+
+        } catch (ex: HttpException) {
+            ex.printStackTrace()
+            emit(StateView.Error(message = ex.message))
+
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            emit(StateView.Error(message = ex.message))
+        }
+    }
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_airplane_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Airbus A380" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/line_airple_blue"
+            app:layout_constraintEnd_toEndOf="@id/text_airplane_name"
+            app:layout_constraintStart_toStartOf="@id/text_airplane_name"
+            app:layout_constraintTop_toBottomOf="@id/text_airplane_name" />
+
+
+        <TextView
+            android:id="@+id/text_departure_airport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            tools:text="ORD - O'Hare\n International Airport" />
+
+        <TextView
+            android:id="@+id/text_arrival_airport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="SEA - Seattle -Tacoma\nInternational Airport" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/text_airplane_name"
+            app:layout_constraintStart_toStartOf="@+id/text_airplane_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_departure_airport"
+            tools:text="Status: Concludo" />
+
+        <TextView
+            android:id="@+id/completion_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_airplane_name"
+            app:layout_constraintStart_toStartOf="@+id/text_airplane_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_status"
+            tools:text="NO_HORARIO" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
