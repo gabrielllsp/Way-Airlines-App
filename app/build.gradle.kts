@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id ("kotlin-kapt")
-//    id("kotlin-parcelize")
+    id("kotlin-parcelize")
     alias(libs.plugins.hilt.android)
 }
 
@@ -76,4 +76,9 @@ dependencies {
 
     //Mockp Interceptor
     debugImplementation(libs.library)
+    releaseImplementation (libs.library.no.op)
+
+    // Kotlin serialization
+    implementation (libs.kotlinx.serialization.json)
+    implementation (libs.retrofit2.kotlinx.serialization.converter)
 }

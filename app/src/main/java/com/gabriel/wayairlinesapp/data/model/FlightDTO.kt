@@ -5,32 +5,32 @@ import com.google.gson.annotations.SerializedName
 data class FlightDTO(
 
     @SerializedName("flight_id")
-    val flightId: Int,
+    val flightId: Int?,
 
     @SerializedName("status")
-    val status: String,
+    val status: String?,
 
     @SerializedName("completion_status")
-    val completionStatus: String,
+    val completionStatus: String?,
 
     @SerializedName("start_date")
-    val startDate: String,
+    val startDate: String?,
 
     @SerializedName("end_date")
-    val endDate: String,
+    val endDate: String?,
 
     @SerializedName("departure_time")
-    val departureTime: String,
+    val departureTime: String?,
 
     @SerializedName("arrival_time")
-    val arrivalTime: String,
+    val arrivalTime: String?,
 
     @SerializedName("departure_airport")
-    val departureAirport: String,
+    val departureAirport: String?,
 
     @SerializedName("arrival_airport")
-    val arrivalAirport: String,
+    val arrivalAirport: String?,
 
     @SerializedName("airplane_name")
-    val airplaneName: String
+    val airplaneName: String?
 )

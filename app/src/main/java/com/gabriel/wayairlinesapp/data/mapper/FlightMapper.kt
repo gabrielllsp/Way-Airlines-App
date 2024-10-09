@@ -1,8 +1,9 @@
 package com.gabriel.wayairlinesapp.data.mapper
 
+import com.gabriel.wayairlinesapp.data.model.FlightDTO
 import com.gabriel.wayairlinesapp.domain.model.Flight
 
-fun com.gabriel.wayairlinesapp.data.model.FlightDTO.toDomain() = Flight(
+fun FlightDTO.toDomain() = Flight(
     flightId = this.flightId,
     status = this.status,
     completionStatus = this.completionStatus,

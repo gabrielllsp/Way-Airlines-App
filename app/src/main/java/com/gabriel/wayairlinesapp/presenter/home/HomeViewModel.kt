@@ -18,13 +18,12 @@ class HomeViewModel @Inject constructor(
         try {
             emit(StateView.Loading())
 
-            val flights = getFlightUseCase.invoke()
-            emit(StateView.Success(data = flights))
+            val flights = getFlightUseCase()
 
+            emit(StateView.Success(data = flights))
         } catch (ex: HttpException) {
             ex.printStackTrace()
             emit(StateView.Error(message = ex.message))
-
         } catch (ex: Exception) {
             ex.printStackTrace()
             emit(StateView.Error(message = ex.message))

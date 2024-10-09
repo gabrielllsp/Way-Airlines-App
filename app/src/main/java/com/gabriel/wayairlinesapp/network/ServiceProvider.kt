@@ -26,6 +26,7 @@ class ServiceProvider @Inject constructor(
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         })
+
         .addInterceptor(mockpInterceptor)
         .build()
 

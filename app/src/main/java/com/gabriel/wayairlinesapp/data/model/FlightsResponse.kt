@@ -1,5 +1,8 @@
 package com.gabriel.wayairlinesapp.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class FlightsResponse(
-    val flights: List<FlightDTO>
+    @SerializedName("flights")
+    val flights: List<FlightDTO>?
 )

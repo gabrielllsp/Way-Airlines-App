@@ -9,6 +9,6 @@ class GetFlightUseCase @Inject constructor(
     private val flightRepository: FlightRepository
 ) {
     suspend operator fun invoke(): List<Flight> {
-        return flightRepository.getFlights().flights.map { it.toDomain() }
+        return flightRepository.getFlights().flights?.map { it.toDomain() } ?: emptyList()
     }
 }
