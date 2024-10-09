@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class FlightDTO(
 
     @SerializedName("flight_id")
-    val flightId: Int?,
+    val flightId: String?,
 
     @SerializedName("status")
     val status: String?,

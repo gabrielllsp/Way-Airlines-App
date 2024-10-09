@@ -33,7 +33,7 @@ class FlightAdapter(
         holder.binding.textStatus.text = flight.status
         holder.binding.completionStatus.text = flight.completionStatus
 
-        holder.itemView.setOnClickListener { flightClick(flight.flightId ?: 0) }
+        holder.itemView.setOnClickListener { flightClick }
 
 
     }

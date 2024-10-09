@@ -1,5 +1,6 @@
 package com.gabriel.wayairlinesapp.presenter.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.gabriel.wayairlinesapp.domain.usecase.GetFlightUseCase
@@ -18,15 +19,45 @@ class HomeViewModel @Inject constructor(
         try {
             emit(StateView.Loading())
 
+            // Log de depuração antes da chamada para obter os voos
+            Log.d("getFlights", "Iniciando chamada para obter os voos.")
+
             val flights = getFlightUseCase()
 
+            // Log de sucesso
+            Log.d("getFlights", "Voos obtidos com sucesso: $flights")
+
             emit(StateView.Success(data = flights))
+
         } catch (ex: HttpException) {
+            // Log de erro específico para HttpException
+            Log.e("getFlights", "Erro HTTP ao tentar obter voos: ${ex.message()}", ex)
+
             ex.printStackTrace()
-            emit(StateView.Error(message = ex.message))
+            emit(StateView.Error(message = ex.message()))
         } catch (ex: Exception) {
+            // Log de erro genérico para qualquer outra exceção
+            Log.e("getFlights", "Erro inesperado ao tentar obter voos: ${ex.message}", ex)
+
             ex.printStackTrace()
             emit(StateView.Error(message = ex.message))
         }
     }
+//        try {
+//            emit(StateView.Loading())
+//
+//            val flights = getFlightUseCase()
+//
+//
+//            emit(StateView.Success(data = flights))
+//
+//        } catch (ex: HttpException) {
+//
+//            ex.printStackTrace()
+//            emit(StateView.Error(message = ex.message))
+//        } catch (ex: Exception) {
+//            ex.printStackTrace()
+//            emit(StateView.Error(message = ex.message))
+//        }
+//    }
 }
