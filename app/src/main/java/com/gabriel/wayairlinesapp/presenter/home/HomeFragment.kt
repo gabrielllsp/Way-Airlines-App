@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.gabriel.wayairlinesapp.R
 import com.gabriel.wayairlinesapp.databinding.FragmentHomeBinding
 import com.gabriel.wayairlinesapp.domain.model.Flight
+import com.gabriel.wayairlinesapp.presenter.adapter.FlightAdapter
 import com.gabriel.wayairlinesapp.util.StateView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,6 +37,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getFlights()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnMore.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_tabManagerFragment)
+        }
     }
 
     private fun getFlights() {
@@ -54,9 +65,9 @@ class HomeFragment : Fragment() {
     private fun initRecyclerView(flights: List<Flight>) {
         with(binding.rvFlights){
             setHasFixedSize(true)
-            adapter = FlightAdapter(flights){
-//                val action = HomeFragmentDirections.actionHomeFragmentToFlightDetailsFragment(it)
-//                findNavController().navigate(action)
+            adapter = FlightAdapter(flights){flightId ->
+                val action = HomeFragmentDirections.actionHomeFragmentToFlightDetailsFragment(flightId = flightId )
+                findNavController().navigate(action)
             }
         }
     }

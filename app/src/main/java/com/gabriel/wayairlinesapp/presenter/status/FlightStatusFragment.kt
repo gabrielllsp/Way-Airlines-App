@@ -1,17 +1,17 @@
-package com.gabriel.wayairlinesapp.presenter.history
+package com.gabriel.wayairlinesapp.presenter.status
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.gabriel.wayairlinesapp.databinding.FragmentFlightHistoryBinding
+import com.gabriel.wayairlinesapp.databinding.FragmentFlightStatusBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FlightHistoryFragment : Fragment() {
+class FlightStatusFragment : Fragment() {
 
-    private var _binding: FragmentFlightHistoryBinding? = null
+    private var _binding: FragmentFlightStatusBinding? = null
     private val binding get() = _binding!!
 
 
@@ -19,7 +19,7 @@ class FlightHistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFlightHistoryBinding.inflate(inflater, container, false)
+        _binding = FragmentFlightStatusBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -11,24 +11,31 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_flightHistoryFragment"
-            app:destination="@id/flightHistoryFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_flightDetailsFragment"
             app:destination="@id/flightDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/flightHistoryFragment"
-        android:name="com.gabriel.wayairlinesapp.presenter.history.FlightHistoryFragment"
-        android:label="fragment_flight_history"
-        tools:layout="@layout/fragment_flight_history" >
         <action
-            android:id="@+id/action_flightHistoryFragment_to_flightDetailsFragment"
-            app:destination="@id/flightDetailsFragment" />
+            android:id="@+id/action_homeFragment_to_tabManagerFragment"
+            app:destination="@id/tabManagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/flightDetailsFragment"
         android:name="com.gabriel.wayairlinesapp.presenter.details.FlightDetailsFragment"
         android:label="fragment_flight_details"
-        tools:layout="@layout/fragment_flight_details" />
+        tools:layout="@layout/fragment_flight_details" >
+        <argument
+            android:name="flightId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabManagerFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.TabManagerFragment"
+        android:label="fragment_tab_manager"
+        tools:layout="@layout/fragment_tab_manager" >
+        <action
+            android:id="@+id/action_tabManagerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_tabManagerFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
 </navigation>

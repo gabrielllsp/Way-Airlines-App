@@ -2,4 +2,12 @@
     <string name="app_name">Way Airlines App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    Status Tabs-->
+    <string name="status_all_flights">Todos</string>
+    <string name="status_completed_flights">Concluídos</string>
+    <string name="status_flight_cancelled">Cancelados</string>
+    <string name="status_open_flights">Realizar</string>
+    <string name="status_flights_in_progress">Viagem</string>
+    <string name="icon_back">icon back</string>
 </resources>
