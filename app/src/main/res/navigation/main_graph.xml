@@ -38,4 +38,49 @@
             android:id="@+id/action_flightStatusFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/allFlightsFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.AllFlightsFragment"
+        android:label="fragment_all_flights"
+        tools:layout="@layout/fragment_all_flights" >
+        <action
+            android:id="@+id/action_allFlightsFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completedFlightsFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.CompletedFlightsFragment"
+        android:label="fragment_completed_flights"
+        tools:layout="@layout/fragment_completed_flights" >
+        <action
+            android:id="@+id/action_completedFlightsFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cancelledFlightsFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.CancelledFlightsFragment"
+        android:label="fragment_cancelled_flights"
+        tools:layout="@layout/fragment_cancelled_flights" >
+        <action
+            android:id="@+id/action_cancelledFlightsFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flightsTravelFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.FlightsTravelFragment"
+        android:label="fragment_flights_travel"
+        tools:layout="@layout/fragment_flights_travel" >
+        <action
+            android:id="@+id/action_flightsTravelFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/performFragment"
+        android:name="com.gabriel.wayairlinesapp.presenter.status.tabs.PerformFragment"
+        android:label="fragment_perform"
+        tools:layout="@layout/fragment_perform" >
+        <action
+            android:id="@+id/action_performFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+    </fragment>
 </navigation>

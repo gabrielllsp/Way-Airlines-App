@@ -60,12 +60,11 @@ class FlightDetailsFragment : Fragment() {
                     Toast.makeText(requireContext(), stateView.message, Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
     }
 
     private fun configData(flight: Flight) {
-        binding.textAirplaneName.text =flight.airplaneName
+        binding.textAirplaneName.text = flight.airplaneName
         binding.textStatus.text = flight.status
         binding.textCompletionStatus.text = flight.completionStatus
         binding.textDepartureAirport.text = flight.departureAirport
