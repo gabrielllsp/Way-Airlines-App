@@ -35,7 +35,7 @@ class FlightDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
-        getBurgerById()
+        getFlightsById()
     }
 
     private fun initListeners() {
@@ -44,7 +44,7 @@ class FlightDetailsFragment : Fragment() {
         }
     }
 
-    private fun getBurgerById() {
+    private fun getFlightsById() {
         viewModel.getFlightsById(args.flightId).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.gabriel.wayairlinesapp.domain.usecase.GetFlightByIdUseCase
+import com.gabriel.wayairlinesapp.domain.usecase.GetFlightUseCase
 import com.gabriel.wayairlinesapp.util.StateView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,16 +16,14 @@ class FlightDetailsViewModel @Inject constructor(
     private val getFlightByIdUseCase: GetFlightByIdUseCase
 ) : ViewModel() {
 
-    companion object {
-        private const val TAG = "FlightDetailsViewModel"
-    }
 
-    fun getFlightsById(flightId: String) = liveData(Dispatchers.IO) {
-        Log.d(TAG, "Fetching flight with ID: $flightId") // Log when fetching starts
+
+    fun getFlightsById(id: String) = liveData(Dispatchers.IO) {
+
         try {
             emit(StateView.Loading())
 
-            val flight = getFlightByIdUseCase(flightId)
+            val flight = getFlightByIdUseCase.invoke(id)
 
             emit(StateView.Success(flight))
 

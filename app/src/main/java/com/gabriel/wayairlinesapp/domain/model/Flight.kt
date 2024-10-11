@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Flight(
-    val flightId: String,
+    val flightId: String?,
     val status: String?,
     val completionStatus: String?,
     val startDate: String?,

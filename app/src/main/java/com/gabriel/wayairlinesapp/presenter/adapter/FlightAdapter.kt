@@ -38,23 +38,8 @@ class FlightAdapter(
         holder.binding.completionStatus.text = flight.completionStatus
 
         holder.itemView.setOnClickListener {
-            flightClick(flight.flightId)
+            flight.flightId?.let { it1 -> flightClick(it1) }
         }
 
-//        holder.itemView.setOnClickListener { flightClick(
-//            flight.flightId?.filter { it.isDigit() }?.toIntOrNull() ?: 0
-//        ) }
-
-//        val flightCode = flight.flightId
-//        val numericPart = flightCode?.filter { it.isDigit() }
-//        val flightNumber = numericPart?.toIntOrNull()
-//
-//
-//        holder.itemView.setOnClickListener {
-//            if (flightNumber != null) {
-//                flightClick(flightNumber)
-//            }
-//
-//        }
     }
 }
