@@ -9,7 +9,7 @@ import com.gabriel.wayairlinesapp.domain.model.Flight
 class FlightAdapter(
 
     private var flights: List<Flight>,
-    private val flightClick: (Int) -> Unit
+    private val flightClick: (String) -> Unit
 ) : RecyclerView.Adapter<FlightAdapter.MyViewHolder>() {
 
     private var filteredItems: List<Flight> = flights
@@ -37,20 +37,24 @@ class FlightAdapter(
         holder.binding.textStatus.text = flight.status
         holder.binding.completionStatus.text = flight.completionStatus
 
+        holder.itemView.setOnClickListener {
+            flightClick(flight.flightId)
+        }
+
 //        holder.itemView.setOnClickListener { flightClick(
 //            flight.flightId?.filter { it.isDigit() }?.toIntOrNull() ?: 0
 //        ) }
 
-        val flightCode = flight.flightId
-        val numericPart = flightCode?.filter { it.isDigit() }
-        val flightNumber = numericPart?.toIntOrNull()
-
-
-        holder.itemView.setOnClickListener {
-            if (flightNumber != null) {
-                flightClick(flightNumber)
-            }
-
-        }
+//        val flightCode = flight.flightId
+//        val numericPart = flightCode?.filter { it.isDigit() }
+//        val flightNumber = numericPart?.toIntOrNull()
+//
+//
+//        holder.itemView.setOnClickListener {
+//            if (flightNumber != null) {
+//                flightClick(flightNumber)
+//            }
+//
+//        }
     }
 }

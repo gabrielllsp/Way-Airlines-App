@@ -15,6 +15,6 @@ interface ServiceApi {
     @MOCK(asset = "flights_response.json", runDelay = true)
     @GET("rankings.json/{flightId}")
     suspend fun getFlightsById(
-        @Path("flightId") flightId: Int
+        @Path("flightId") flightId: String
     ): FlightDTO
 }

@@ -19,7 +19,7 @@ class FlightDetailsViewModel @Inject constructor(
         private const val TAG = "FlightDetailsViewModel"
     }
 
-    fun getFlightsById(flightId: Int) = liveData(Dispatchers.IO) {
+    fun getFlightsById(flightId: String) = liveData(Dispatchers.IO) {
         Log.d(TAG, "Fetching flight with ID: $flightId") // Log when fetching starts
         try {
             emit(StateView.Loading())

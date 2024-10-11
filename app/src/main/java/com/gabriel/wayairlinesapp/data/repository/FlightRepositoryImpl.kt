@@ -13,7 +13,7 @@ class FlightRepositoryImpl @Inject constructor(
         return serviceApi.getFlights()
     }
 
-    override suspend fun getFlightsById(flightId: Int): FlightDTO {
+    override suspend fun getFlightsById(flightId: String): FlightDTO {
         return serviceApi.getFlightsById(flightId)
     }
 }

@@ -14,7 +14,6 @@ import com.gabriel.wayairlinesapp.R
 import com.gabriel.wayairlinesapp.databinding.FragmentFlightStatusBinding
 import com.gabriel.wayairlinesapp.domain.model.Flight
 import com.gabriel.wayairlinesapp.presenter.adapter.FlightAdapter
-import com.gabriel.wayairlinesapp.presenter.details.FlightDetailsFragmentArgs
 import com.gabriel.wayairlinesapp.util.StateView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +24,7 @@ class FlightStatusFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: FlightStatusViewModel by viewModels()
-//    private val args: FlightDetailsFragmentArgs by navArgs()
+
 
 
     override fun onCreateView(
@@ -44,14 +43,16 @@ class FlightStatusFragment : Fragment() {
     }
 
     private fun getFlights() {
-        viewModel.getFlights().observe(viewLifecycleOwner){ stateView ->
-            when(stateView){
+        viewModel.getFlights().observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
                 is StateView.Error -> {}
                 is StateView.Success -> {
 
                     val flights = stateView.data ?: emptyList()
                     initRecyclerView(flights)
+
                 }
+
                 is StateView.Loading -> {
                     binding.progressBar.isInvisible = true
                 }
@@ -60,14 +61,19 @@ class FlightStatusFragment : Fragment() {
     }
 
     private fun initRecyclerView(flights: List<Flight>) {
-        with(binding.rvFlights){
+        with(binding.rvFlights) {
             setHasFixedSize(true)
-            adapter = FlightAdapter(flights){flightId ->
-                val action = FlightStatusFragmentDirections.actionFlightStatusFragmentToFlightDetailsFragment(flightId)
+            adapter = FlightAdapter(flights) { flightId ->
+                val action =
+                    FlightStatusFragmentDirections.actionFlightStatusFragmentToFlightDetailsFragment(
+                        flightId
+                    )
                 findNavController().navigate(action)
             }
+
         }
     }
+
 
     private fun initListeners() {
         binding.btnBack.setOnClickListener {

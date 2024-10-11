@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_flight_details" >
         <argument
             android:name="flightId"
-            app:argType="integer" />
+            app:argType="string" />
         <action
             android:id="@+id/action_flightDetailsFragment_to_flightStatusFragment"
             app:destination="@id/flightStatusFragment" />
