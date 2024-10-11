@@ -25,6 +25,9 @@
         <argument
             android:name="flightId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_flightDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/tabManagerFragment"

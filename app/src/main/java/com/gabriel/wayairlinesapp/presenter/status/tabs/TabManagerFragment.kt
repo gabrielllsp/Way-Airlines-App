@@ -31,6 +31,7 @@ class TabManagerFragment : Fragment() {
 
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +46,10 @@ class TabManagerFragment : Fragment() {
         initListeners()
         initTabs()
 
+
     }
+
+
 
 
     private fun initTabs() {
@@ -73,15 +77,15 @@ class TabManagerFragment : Fragment() {
     }
 
 
-    private fun initRecyclerView(flights: List<Flight>) {
-        with(binding.rvFlights){
-            setHasFixedSize(true)
-            adapter = TabManagerAdapter(flights){flightId ->
-                val action = TabManagerFragmentDirections.actionTabManagerFragmentToFlightDetailsFragment(flightId)
-                findNavController().navigate(action)
-            }
-        }
-    }
+//    private fun initRecyclerView(flights: List<Flight>) {
+//        with(binding.rvFlights){
+//            setHasFixedSize(true)
+//            adapter = TabManagerAdapter(flights){flightId ->
+//                val action = TabManagerFragmentDirections.actionTabManagerFragmentToFlightDetailsFragment(flightId)
+//                findNavController().navigate(action)
+//            }
+//        }
+//    }
 
 
     private fun initListeners() {

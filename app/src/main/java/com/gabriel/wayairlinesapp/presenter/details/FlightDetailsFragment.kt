@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.gabriel.wayairlinesapp.R
 import com.gabriel.wayairlinesapp.databinding.FragmentFlightDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,6 +27,13 @@ class FlightDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_flightDetailsFragment_to_homeFragment)
+        }
     }
 
     override fun onDestroy() {
