@@ -8,11 +8,11 @@ import retrofit2.http.Path
 
 interface ServiceApi {
 
-    @MOCK(asset = "flights_response.json", runDelay = true)
+//    @MOCK(asset = "flights_response.json", runDelay = true)
     @GET("rankings.json")
     suspend fun getFlights(): FlightsResponse
 
-    @MOCK(asset = "flights_response.json", runDelay = true)
-    @GET("rankings.json/{flightId}")
-    suspend fun getFlightsById(@Path("flightId") id: String): FlightDTO
+//    @MOCK(asset = "flights_response.json", runDelay = true)
+    @GET("rankings.json")
+    suspend fun getFlightsById(): FlightDTO
 }

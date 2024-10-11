@@ -7,5 +7,5 @@ interface FlightRepository {
 
     suspend fun getFlights(): FlightsResponse
 
-    suspend fun getFlightsById(id: String): FlightDTO
+    suspend fun getFlightsById(): FlightDTO
 }

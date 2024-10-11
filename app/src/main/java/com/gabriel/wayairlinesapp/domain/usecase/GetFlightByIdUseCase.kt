@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetFlightByIdUseCase @Inject constructor(
     private val flightRepository: FlightRepository
 ) {
-    suspend operator fun invoke(id: String): Flight {
-        return flightRepository.getFlightsById(id).toDomain()
+    suspend operator fun invoke(): Flight {
+        return flightRepository.getFlightsById().toDomain()
     }
 }

@@ -45,7 +45,7 @@ class FlightDetailsFragment : Fragment() {
     }
 
     private fun getFlightsById() {
-        viewModel.getFlightsById(args.flightId).observe(viewLifecycleOwner) { stateView ->
+        viewModel.getFlightsById().observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 
                 is StateView.Loading -> {

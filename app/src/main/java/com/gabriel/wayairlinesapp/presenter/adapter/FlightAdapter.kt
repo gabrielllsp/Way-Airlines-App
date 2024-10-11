@@ -40,6 +40,5 @@ class FlightAdapter(
         holder.itemView.setOnClickListener {
             flight.flightId?.let { it1 -> flightClick(it1) }
         }
-
     }
 }

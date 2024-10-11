@@ -18,12 +18,12 @@ class FlightDetailsViewModel @Inject constructor(
 
 
 
-    fun getFlightsById(id: String) = liveData(Dispatchers.IO) {
+    fun getFlightsById() = liveData(Dispatchers.IO) {
 
         try {
             emit(StateView.Loading())
 
-            val flight = getFlightByIdUseCase.invoke(id)
+            val flight = getFlightByIdUseCase.invoke()
 
             emit(StateView.Success(flight))
 
