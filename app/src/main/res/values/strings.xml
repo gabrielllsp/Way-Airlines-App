@@ -10,4 +10,18 @@
     <string name="status_open_flights">Realizar</string>
     <string name="status_flights_in_progress">Viagem</string>
     <string name="icon_back">icon back</string>
+
+    <!-- Flight Details -->
+    <string name="image_world_half">Image World Half</string>
+    <string name="detalhes_do_voo">Detalhes do Voo</string>
+    <string name="image_calendar">Image calendar</string>
+    <string name="line_airple_blue">line_airple_blue</string>
+    <string name="image_barcode">Image_barcode</string>
+
+    <!-- Home -->
+    <string name="way_airlines">Way Airlines</string>
+    <string name="see_all">Ver todos</string>
+    <string name="image_departure_airport">Image departure airport</string>
+    <string name="image_more">image more</string>
+    <string name="lista_de_voos">Lista de Voos</string>
 </resources>

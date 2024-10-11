@@ -60,7 +60,6 @@ class TabManagerFragment : Fragment() {
 
         binding.viewPager.offscreenPageLimit = 5
 
-
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = getString(pageAdapter.getTitle(position))
             binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

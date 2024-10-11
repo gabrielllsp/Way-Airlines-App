@@ -12,13 +12,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/text_airplane_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
+            android:layout_marginTop="8dp"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,29 +27,40 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Airbus A380" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_more"
+            android:src="@drawable/ic_more"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey" />
+
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="TODO"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/image_departure_airport"
             android:src="@drawable/line_airple_blue"
-            app:layout_constraintEnd_toEndOf="@id/text_airplane_name"
-            app:layout_constraintStart_toStartOf="@id/text_airplane_name"
-            app:layout_constraintTop_toBottomOf="@id/text_airplane_name" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_departure_airport" />
 
 
         <TextView
             android:id="@+id/text_departure_airport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/imageView"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
-            tools:text="ORD - O'Hare\n International Airport" />
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_airplane_name"
+            tools:text="ORD - O'Hare International Airport" />
 
         <TextView
             android:id="@+id/text_arrival_airport"
@@ -59,8 +71,9 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            tools:text="SEA - Seattle -Tacoma\nInternational Airport" />
+            tools:text="SEA - Seattle -Tacoma International Airport" />
 
         <TextView
             android:id="@+id/text_status"
@@ -69,17 +82,17 @@
             android:textColor="@color/blue"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/text_airplane_name"
-            app:layout_constraintStart_toStartOf="@+id/text_airplane_name"
-            app:layout_constraintTop_toBottomOf="@+id/text_departure_airport"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/text_arrival_airport"
+            app:layout_constraintStart_toStartOf="@+id/text_arrival_airport"
+            app:layout_constraintTop_toBottomOf="@+id/text_arrival_airport"
             tools:text="Status: Concludo" />
 
         <TextView
             android:id="@+id/completion_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/blue"
+            android:textColor="@color/grey"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
