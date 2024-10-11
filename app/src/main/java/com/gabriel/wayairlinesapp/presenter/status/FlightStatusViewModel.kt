@@ -1,4 +1,4 @@
-package com.gabriel.wayairlinesapp.presenter.home
+package com.gabriel.wayairlinesapp.presenter.status
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -11,7 +11,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class FlightStatusViewModel@Inject constructor(
     private val getFlightUseCase: GetFlightUseCase
 ): ViewModel() {
 
@@ -19,29 +19,20 @@ class HomeViewModel @Inject constructor(
         try {
             emit(StateView.Loading())
 
-            // Log de depuração antes da chamada para obter os voos
-            Log.d("getFlights", "Iniciando chamada para obter os voos.")
-
             val flights = getFlightUseCase()
-
-            // Log de sucesso
-            Log.d("getFlights", "Voos obtidos com sucesso: $flights")
 
             emit(StateView.Success(data = flights))
 
         } catch (ex: HttpException) {
-            // Log de erro específico para HttpException
-            Log.e("getFlights", "Erro HTTP ao tentar obter voos: ${ex.message()}", ex)
+
 
             ex.printStackTrace()
             emit(StateView.Error(message = ex.message()))
         } catch (ex: Exception) {
-            // Log de erro genérico para qualquer outra exceção
-            Log.e("getFlights", "Erro inesperado ao tentar obter voos: ${ex.message}", ex)
+
 
             ex.printStackTrace()
             emit(StateView.Error(message = ex.message))
         }
     }
-
 }

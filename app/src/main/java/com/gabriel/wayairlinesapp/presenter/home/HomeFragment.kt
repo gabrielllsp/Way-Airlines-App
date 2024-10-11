@@ -4,16 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.gabriel.wayairlinesapp.R
 import com.gabriel.wayairlinesapp.databinding.FragmentHomeBinding
-import com.gabriel.wayairlinesapp.domain.model.Flight
-import com.gabriel.wayairlinesapp.presenter.adapter.FlightAdapter
-import com.gabriel.wayairlinesapp.util.StateView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +15,6 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    private val viewModel: HomeViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -36,39 +28,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getFlights()
+//        getFlights()
         initListeners()
     }
 
     private fun initListeners() {
         binding.btnMore.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_tabManagerFragment)
-        }
-    }
-
-    private fun getFlights() {
-        viewModel.getFlights().observe(viewLifecycleOwner){stateView ->
-            when(stateView){
-                is StateView.Error -> {}
-                is StateView.Success -> {
-
-                    val flights = stateView.data ?: emptyList()
-                    initRecyclerView(flights)
-                }
-                is StateView.Loading -> {
-                    binding.progressBar.isInvisible = true
-                }
-            }
-        }
-    }
-
-    private fun initRecyclerView(flights: List<Flight>) {
-        with(binding.rvFlights){
-            setHasFixedSize(true)
-            adapter = FlightAdapter(flights){flightId ->
-                val action = HomeFragmentDirections.actionHomeFragmentToFlightDetailsFragment(flightId = flightId )
-                findNavController().navigate(action)
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_flightStatusFragment)
         }
     }
 
